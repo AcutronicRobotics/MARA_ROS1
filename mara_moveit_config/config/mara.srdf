@@ -27,23 +27,6 @@
       <joint name="motor5" value="-1.570" />
       <joint name="motor6" value="0" />
     </group_state>
-    <group_state name="kk" group="manipulator">
-      <joint name="motor1" value="0" />
-      <joint name="motor2" value="0" />
-      <joint name="motor3" value="1" />
-      <joint name="motor4" value="0" />
-      <joint name="motor5" value="1.5" />
-      <joint name="motor6" value="0" />
-    </group_state>
-
-    <group_state name="noventa" group="manipulator">
-      <joint name="motor1" value="0" />
-      <joint name="motor2" value="1.57" />
-      <joint name="motor3" value="0" />
-      <joint name="motor4" value="0" />
-      <joint name="motor5" value="0" />
-      <joint name="motor6" value="0" />
-    </group_state>
 
     <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
     <group_state name="up" group="manipulator">
@@ -207,6 +190,20 @@
     <disable_collisions link1="right_outer_knuckle" link2="world" reason="Never" />
     <disable_collisions link1="robotiq_arg2f_base_link" link2="world" reason="Never" />
     <disable_collisions link1="table" link2="world" reason="Adjacent" />
+
+
+    <disable_collisions link1="motor1_link" link2="motor1_cover" reason="Never" />
+    <disable_collisions link1="motor2_link" link2="motor1_cover" reason="Never" />
+    <disable_collisions link1="motor1_link" link2="base_robot" reason="Adjacent" />
+
+    <disable_collisions link1="motor3_link" link2="motor3_cover" reason="Never" />
+    <disable_collisions link1="motor4_link" link2="motor3_cover" reason="Never" />
+    <disable_collisions link1="motor1_link" link2="motor1_cover" reason="Never" />
+
+    <disable_collisions link1="motor5_link" link2="motor5_cover" reason="Never" />
+    <disable_collisions link1="motor5_cover" link2="motor4_link" reason="Never" />
+    <disable_collisions link1="motor6_link" link2="motor5_cover" reason="Never" />
+    <disable_collisions link1="motor1_link" link2="motor1_cover" reason="Never" />
 
 
 </robot>
