@@ -89,6 +89,55 @@
       <joint name="motor5" value="0" />
       <joint name="motor6" value="0" />
     </group_state>
+    <group_state name="pos7" group="manipulator">
+      <joint name="motor1" value="0" />
+      <joint name="motor2" value="0" />
+      <joint name="motor3" value="1.57" />
+      <joint name="motor4" value="0" />
+      <joint name="motor5" value="0" />
+      <joint name="motor6" value="0" />
+    </group_state>
+    <group_state name="pos8" group="manipulator">
+      <joint name="motor1" value="0" />
+      <joint name="motor2" value="0" />
+      <joint name="motor3" value="-1.57" />
+      <joint name="motor4" value="0" />
+      <joint name="motor5" value="0" />
+      <joint name="motor6" value="0" />
+    </group_state>
+    <group_state name="pos9" group="manipulator">
+      <joint name="motor1" value="0" />
+      <joint name="motor2" value="0" />
+      <joint name="motor3" value="0" />
+      <joint name="motor4" value="1.57" />
+      <joint name="motor5" value="0" />
+      <joint name="motor6" value="0" />
+    </group_state>
+    <group_state name="pos10" group="manipulator">
+      <joint name="motor1" value="0" />
+      <joint name="motor2" value="0" />
+      <joint name="motor3" value="0" />
+      <joint name="motor4" value="-1.57" />
+      <joint name="motor5" value="0" />
+      <joint name="motor6" value="0" />
+    </group_state>
+    <group_state name="pos11" group="manipulator">
+      <joint name="motor1" value="0" />
+      <joint name="motor2" value="0" />
+      <joint name="motor3" value="0" />
+      <joint name="motor4" value="0" />
+      <joint name="motor5" value="1.57" />
+      <joint name="motor6" value="0" />
+    </group_state>
+    <group_state name="pos12" group="manipulator">
+      <joint name="motor1" value="0" />
+      <joint name="motor2" value="0" />
+      <joint name="motor3" value="0" />
+      <joint name="motor4" value="0" />
+      <joint name="motor5" value="-1.57" />
+      <joint name="motor6" value="0" />
+    </group_state>
+
 
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
     <end_effector name="moveit_ee" parent_link="ee_link" group="endeffector" />
