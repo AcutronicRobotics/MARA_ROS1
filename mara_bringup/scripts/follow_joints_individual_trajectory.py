@@ -17,14 +17,10 @@ class maraFollowJoint(object):
     _feedback = control_msgs.msg.FollowJointTrajectoryFeedback()
     _result = control_msgs.msg.FollowJointTrajectoryResult()
 
-    def jointStateCallback(self, msg):
-        self.joints_state_msg = msg
-
     def __init__(self, name):
         self._action_name = name
         self._as = actionlib.SimpleActionServer(self._action_name, control_msgs.msg.FollowJointTrajectoryAction, execute_cb=self.execute_cb, auto_start = False)
         self._as.start()
-        self.state_subscriber = rospy.Subscriber("/mara_controller/state", JointTrajectoryControllerState, self.jointStateCallback)
 
         names_joints = ["/hros_actuation_servomotor_0000000000012/trajectory",
                         "/hros_actuation_servomotor_000000000001/trajectory",
