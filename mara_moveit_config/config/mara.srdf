@@ -254,5 +254,5 @@
     <disable_collisions link1="motor6_link" link2="motor5_cover" reason="Never" />
     <disable_collisions link1="motor1_link" link2="motor1_cover" reason="Never" />
 
-
+    <disable_collisions link1="motor3_cover" link2="motor2_link" reason="Never" />
 </robot>
