@@ -48,7 +48,7 @@
         <geometry>
           <mesh filename="package://mara_description/meshes/Base.dae" scale="0.001 0.001 0.001"/>
         </geometry>
-        <material name="Gazebo/Grey">
+        <material name="Gazebo/Black">
           <color rgba="1. 0. 0. 1.0"/>
         </material>
       </visual>
@@ -60,7 +60,7 @@
       </collision>
     </link>
     <gazebo reference="${prefix}base_robot">
-      <material>Gazebo/Grey</material>
+      <material>Gazebo/Black</material>
       <selfCollide>True</selfCollide>
     </gazebo>
 
