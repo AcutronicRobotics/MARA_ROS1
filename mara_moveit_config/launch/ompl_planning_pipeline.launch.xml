@@ -20,6 +20,5 @@
 
   <rosparam command="load" file="$(find mara_moveit_config)/config/ompl_planning.yaml"/>
   <rosparam command="load" file="$(find mara_moveit_config)/config/chomp_planning.yaml"/>
-  <rosparam command="load" file="$(find mara_moveit_config)/config/stomp_planning.yaml"/>
   
 </launch>
