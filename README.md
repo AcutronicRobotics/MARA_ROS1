@@ -9,7 +9,9 @@ This repository provides ROS 2 support for [MARA](https://acutronicrobotics.com/
 
  - `mara_bringup`: roslaunch scripts for starting the MARA.
  - `mara_description`: 3D models of the MARA for description and visualization.
- - `robotiq_arg2f_model_visualization`: 3D models of the Robotiq 140 gripper for visualization.
+ - `robotiq_140_gripper_description`: 3D models of the Robotiq 140 gripper for visualization.
+ - `robotiq_85_gripper_description`: 3D models of the Robotiq 85 gripper for visualization.
+ - `robotiq_hande_gripper_description`: 3D models of the Robotiq Hand-E gripper for visualization.
  - `mara_moveit_config`: Configuration for setting up MoveIT!
 
 ## Compile
