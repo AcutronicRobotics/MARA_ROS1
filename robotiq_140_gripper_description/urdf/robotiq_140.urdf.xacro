@@ -377,5 +377,6 @@
           </limit>
         </axis>
       </joint>
+    </gazebo>
   </xacro:macro>
 </robot>
