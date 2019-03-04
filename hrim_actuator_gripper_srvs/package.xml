@@ -1,0 +1,23 @@
+<package>
+  <name>hrim_actuator_gripper_srvs</name>
+  <version>1.4.0</version>
+  <description>
+    hrim_actuator_gripper_srvs contains
+  </description>
+  <author email="ahcorde@erlerobotics.com">Alejandro Hernandez Cordero</author>
+  <maintainer email="ahcorde@erlerobotics.com">Alejandro Hernandez Cordero</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>message_generation</build_depend>
+  <build_depend>std_msgs</build_depend>
+
+  <run_depend>message_runtime</run_depend>
+  <run_depend>std_msgs</run_depend>
+
+  <export>
+    <architecture_independent/>
+  </export>
+</package>
