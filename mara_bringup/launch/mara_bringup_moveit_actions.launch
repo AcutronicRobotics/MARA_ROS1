@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="prefix" default="140"/>
+
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find mara_description)/urdf/mara_robot_gripper_$(arg prefix).urdf.xacro'" />
+
+  <!-- Robot state publisher -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="50.0" />
+    <param name="tf_prefix" type="string" value="" />
+  </node>
+
+  <node pkg="mara_bringup" type="follow_joints_trajectory_actions.py" name="follow_joints_individual_trajectory" args="$(find mara_bringup)/config/motors.yaml">
+  </node>
+
+  <include file="$(find mara_moveit_config)/launch/mara_moveit_planning_execution.launch">
+  </include>
+
+  <include file="$(find mara_moveit_config)/launch/moveit_rviz.launch">
+    <arg name="config" default="true"/>
+  </include>
+
+</launch>

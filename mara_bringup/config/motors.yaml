@@ -1,0 +1,3 @@
+motors:
+  - /erleAlexATX/trajectory_axis2
+  - /erleAlexATX/trajectory_axis1
