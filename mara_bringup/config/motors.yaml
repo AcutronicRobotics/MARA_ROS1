@@ -1,3 +1,7 @@
 motors:
-  - /erleAlexATX/trajectory_axis2
-  - /erleAlexATX/trajectory_axis1
+  - /hros_actuation_servomotor_000000000001/trajectory_axis2
+  - /hros_actuation_servomotor_000000000001/trajectory_axis1
+  - /hros_actuation_servomotor_000000000002/trajectory_axis1
+  - /hros_actuation_servomotor_000000000002/trajectory_axis2
+  - /hros_actuation_servomotor_000000000003/trajectory_axis1
+  - /hros_actuation_servomotor_000000000003/trajectory_axis2

@@ -50,7 +50,7 @@ class maraFollowJoint(object):
         for i in range(len(self.names_actions)):
             print(self.names_actions[i])
             while not self.actions_list[i].wait_for_server(Duration(1.0)):
-                print("Waiting for" + self.actions_list[i] + "service")
+                print("Waiting for" + self.names_actions[i] + "service")
 
 
         msg_actions = []
@@ -89,7 +89,7 @@ class maraFollowJoint(object):
                 print("Motor " + self.names_actions[joint_number] + "finished well")
             else:
                 print("Motor " + self.names_actions[joint_number] + "failed")
-                success = false;
+                success = False;
 
         if(success):
             self._as.set_succeeded(self._result)
