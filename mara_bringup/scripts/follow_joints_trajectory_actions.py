@@ -5,7 +5,7 @@ import time
 import sys
 
 import actionlib
-from actionlib_msgs.msg import GoalStatus
+from actionlib_msgs.msg import GoalStatus, GoalID
 
 import math
 import copy
@@ -26,6 +26,10 @@ class maraFollowJoint(object):
                                                 FollowJointTrajectoryAction,
                                                 execute_cb=self.execute_cb,
                                                 auto_start = False)
+
+
+        rospy.Subscriber("/follow_joint_trajectory/cancel", GoalID, self.cancel_cb)
+
         self._as.start()
 
         with open(yml_file_str, 'r') as ymlfile:
@@ -40,6 +44,14 @@ class maraFollowJoint(object):
 
     def feedback_cb(self, feedback):
         self.as_.publishFeedback(feedback);
+
+    def cancel_cb(self, cancel):
+        print("Cancel recieved!");
+        print(cancel)
+        self._as.set_aborted()
+        for i in range(len(self.names_actions)):
+            pub = rospy.Publisher(self.names_actions[i] + "/cancel", GoalID, queue_size=1)
+            pub.publish(cancel)
 
     def execute_cb(self, goal):
 
@@ -86,9 +98,12 @@ class maraFollowJoint(object):
         for joint_number in range(number_of_joints):
             if self.actions_list[joint_number].get_state() == GoalStatus.SUCCEEDED:
                 rospy.loginfo('%s: Succeeded' % self._action_name)
-                print("Motor " + self.names_actions[joint_number] + "finished well")
+                if self._as.is_active():
+                    print("Motor " + self.names_actions[joint_number] + " finished well")
+                else:
+                    success = False;
             else:
-                print("Motor " + self.names_actions[joint_number] + "failed")
+                print("Motor " + self.names_actions[joint_number] + " failed")
                 success = False;
 
         if(success):
