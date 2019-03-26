@@ -246,6 +246,12 @@
     <disable_collisions link1="robotiq_hande_base_link" link2="finger2" reason="Adjacent" />
     <disable_collisions link1="robotiq_hande_base_link" link2="finger1" reason="Adjacent" />
 
+    <disable_collisions link1="ee_link" link2="body" reason="Never" />
+    <disable_collisions link1="motor5_link" link2="body" reason="Never" />
+    <disable_collisions link1="motor6_link" link2="body" reason="Never" />
+    <disable_collisions link1="body" link2="finger2" reason="Adjacent" />
+    <disable_collisions link1="body" link2="finger1" reason="Adjacent" />
+
     <disable_collisions link1="motor1_link" link2="motor1_cover" reason="Never" />
     <disable_collisions link1="motor2_link" link2="motor1_cover" reason="Never" />
     <disable_collisions link1="motor1_link" link2="base_robot" reason="Adjacent" />
