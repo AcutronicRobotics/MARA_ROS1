@@ -11,7 +11,7 @@
     <param name="tf_prefix" type="string" value="" />
   </node>
 
-  <node pkg="mara_bringup" type="follow_joints_individual_trajectory.py" name="follow_joints_individual_trajectory">
+  <node pkg="mara_bringup" type="follow_joints_trajectory_actions.py" name="follow_joints_individual_trajectory">
   </node>
 
   <include file="$(find mara_moveit_config)/launch/mara_moveit_planning_execution.launch">
