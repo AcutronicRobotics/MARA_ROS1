@@ -3,18 +3,17 @@
        name="mara" >
 
   <!-- common stuff -->
-  <xacro:include filename="$(find mara_description)/urdf/common.gazebo.xacro" />
+  <xacro:include filename="$(find mara_description)/urdf/mara_gazebo.urdf.xacro" />
 
   <!-- mara -->
   <xacro:include filename="$(find mara_description)/urdf/mara.urdf.xacro" />
 
   <!-- robotiq 140 gripper -->
-  <xacro:include filename="$(find mara_description)/urdf/robotiq_gripper.urdf.xacro" />
 
   <xacro:include filename="$(find mara_description)/urdf/table.urdf.xacro" />
 
   <!-- arm -->
-  <xacro:mara_robot prefix="" joint_limited="false"/>
+  <xacro:mara_robot prefix="" ee_link_distance="0.0"/>
   <xacro:table prefix="" />
 
   <link name="world" />
