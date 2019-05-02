@@ -33,10 +33,10 @@
     <joint name="base_adapter_to_base_robotiq_joint" type="fixed">
       <origin rpy="0 0 0" xyz=" 0 0 0.03653"/>
       <parent link="robotiq_adapter_link" />
-      <child link="robotiq_arg2f_base"/>
+      <child link="robotiq_arg2f_base_link"/>
     </joint>
 
-    <link name="robotiq_arg2f_base">
+    <link name="robotiq_arg2f_base_link">
       <inertial>
         <origin xyz="8.625E-08 -4.6583E-06 0.03145" rpy="0 0 0" />
         <mass value="0.22652" />
@@ -58,7 +58,7 @@
         </geometry>
       </collision>
     </link>
-    <gazebo reference="robotiq_arg2f_base">
+    <gazebo reference="robotiq_arg2f_base_link">
       <material>Gazebo/Black</material>
       <selfCollide>True</selfCollide>
     </gazebo>
@@ -281,7 +281,7 @@
 
     <joint name="left_outer_knuckle_joint" type="revolute">
       <origin xyz="-0.0306 0 0.05490" rpy="0 0 0" />
-      <parent link="robotiq_arg2f_base" />
+      <parent link="robotiq_arg2f_base_link" />
       <child link="left_outer_knuckle" />
       <axis xyz="0 1 0" />
       <limit lower="0.0" upper="0.78" velocity="2.0" effort="1000" />
@@ -290,7 +290,7 @@
 
     <joint name="joint_finger" type="revolute">
       <origin xyz="0.0306 0 0.05490" rpy="0 0 3.1416" />
-      <parent link="robotiq_arg2f_base" />
+      <parent link="robotiq_arg2f_base_link" />
       <child link="right_outer_knuckle" />
       <axis xyz="0 1 0" />
       <limit lower="0" upper="0.78" velocity="2.0" effort="1000" />
@@ -298,7 +298,7 @@
 
     <joint name="left_inner_knuckle_joint" type="revolute">
       <origin xyz="-0.0127 0 0.06142" rpy="0 0 0" />
-      <parent link="robotiq_arg2f_base" />
+      <parent link="robotiq_arg2f_base_link" />
       <child link="left_inner_knuckle" />
       <axis xyz="0 1 0" />
       <limit lower="0" upper="0.8757" velocity="2.0" effort="1000" />
@@ -307,7 +307,7 @@
 
     <joint name="right_inner_knuckle_joint" type="revolute">
       <origin xyz="0.0127 0 0.06142" rpy="0 0 3.1416" />
-      <parent link="robotiq_arg2f_base" />
+      <parent link="robotiq_arg2f_base_link" />
       <child link="right_inner_knuckle" />
       <axis xyz="0 1 0" />
       <limit lower="0" upper="0.8757" velocity="2.0" effort="1000" />
