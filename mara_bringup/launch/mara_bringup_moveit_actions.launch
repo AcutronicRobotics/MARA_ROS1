@@ -1,9 +1,15 @@
 <?xml version="1.0"?>
 <launch>
 
+  <arg name="gripper" default="false"/>
   <arg name="prefix" default="140"/>
+  <arg name="table" default="true"/>
 
-  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find mara_description)/urdf/mara_robot_gripper_$(arg prefix).urdf.xacro'" />
+  <arg unless="$(arg gripper)" name="model" default="mara_robot"/>
+  <arg unless="$(arg table)" name="no_table" default="no_table"/>
+  <arg if="$(arg gripper)" name="model" default="mara_robot_gripper_$(arg prefix)_$(arg no_table)"/>
+
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find mara_description)/urdf/$(arg model).urdf.xacro'" />
 
   <!-- Robot state publisher -->
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
