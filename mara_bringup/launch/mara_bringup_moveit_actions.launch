@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-
+  <arg name="env" default="sim"/>
   <arg name="gripper" default="false"/>
   <arg name="prefix" default="140"/>
   <arg name="table" default="true"/>
