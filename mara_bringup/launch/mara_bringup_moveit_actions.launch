@@ -7,7 +7,7 @@
 
   <arg unless="$(arg gripper)" name="model" default="mara_robot"/>
   <arg unless="$(arg table)" name="no_table" default="_no_table"/>
-  
+
   <arg if="$(arg table)" name="no_table" default=""/>
   <arg if="$(arg gripper)" name="model" default="mara_robot_gripper_$(arg prefix)$(arg no_table)"/>
 
@@ -19,8 +19,7 @@
     <param name="tf_prefix" type="string" value="" />
   </node>
 
-  <node pkg="mara_bringup" type="follow_joints_trajectory_actions.py" name="follow_joints_individual_trajectory" args="$(find mara_bringup)/config/motors.yaml">
-  </node>
+  <node pkg="mara_bringup" type="follow_joints_trajectory_actions.py" name="follow_joints_individual_trajectory" args="$(find mara_bringup)/config/motors.yaml $(arg env)"/>
 
   <include file="$(find mara_moveit_config)/launch/mara_moveit_planning_execution.launch">
   </include>
