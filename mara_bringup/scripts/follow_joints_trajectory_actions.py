@@ -20,7 +20,7 @@ class maraFollowJoint(object):
     # create messages that are used to publish feedback/result
     _result = control_msgs.msg.FollowJointTrajectoryResult()
 
-    def __init__(self, name, yml_file_str):
+    def __init__(self, name, yml_file_str, env):
         self._action_name = name
         self._as = actionlib.SimpleActionServer(self._action_name,
                                                 FollowJointTrajectoryAction,
@@ -35,8 +35,14 @@ class maraFollowJoint(object):
         with open(yml_file_str, 'r') as ymlfile:
             cfg = yaml.load(ymlfile)
 
-        self.names_actions = cfg['motors']
+        if env == "sim":
+            motor_key = "simulated_motors"
+        elif env == "real":
+            motor_key = "real_motors"
+        else:
+            raise NameError("motor_key has to be sim or real")
 
+        self.names_actions = cfg[motor_key]
         self.actions_list = []
 
         for i in range(len(self.names_actions)):
@@ -118,5 +124,5 @@ if __name__ == '__main__':
         exit(0)
 
     rospy.init_node('mara_follow_joint_trajectory')
-    server = maraFollowJoint('/follow_joint_trajectory', sys.argv[1])
+    server = maraFollowJoint('/follow_joint_trajectory', sys.argv[1], sys.argv[2])
     rospy.spin()
