@@ -3,8 +3,6 @@
 
 This repository provides ROS 2 support for [MARA](https://acutronicrobotics.com/products/mara/).
 
-![](https://acutronicrobotics.com/docs/user/pages/02.Products/01.MARA/MARA2.jpg)
-
 ## Packages
 
  - `mara_bringup`: roslaunch scripts for starting the MARA.
