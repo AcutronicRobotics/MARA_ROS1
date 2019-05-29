@@ -107,7 +107,7 @@
         </material>
       </visual>
       <collision>
-        <origin rpy="0 0 3.1416" xyz="0 0 0"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
         <geometry>
           <mesh filename="package://mara_description/meshes/MARA_T49_Black.dae" scale="0.001 0.001 0.001"/>
         </geometry>
