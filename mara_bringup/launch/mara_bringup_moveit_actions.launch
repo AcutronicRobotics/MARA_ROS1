@@ -11,7 +11,7 @@
   <arg if="$(arg table)" name="no_table" default=""/>
   <arg if="$(arg gripper)" name="model" default="mara_robot_gripper_$(arg prefix)$(arg no_table)"/>
 
-  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find mara_description)/urdf/two_mara_robots_gripper_140_no_table.urdf.xacro'" />
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find mara_description)/urdf/$(arg model).urdf.xacro'" />
 
   <!-- Robot state publisher -->
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
