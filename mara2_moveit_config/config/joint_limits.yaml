@@ -1,0 +1,64 @@
+# joint_limits.yaml allows the dynamics properties specified in the URDF to be overwritten or augmented as needed
+# Specific joint properties can be changed with the keys [max_position, min_position, max_velocity, max_acceleration]
+# Joint limits can be turned off with [has_velocity_limits, has_acceleration_limits]
+joint_limits:
+  mara1_motor1:
+    has_velocity_limits: true
+    max_velocity: 1.57
+    has_acceleration_limits: false
+    max_acceleration: 0
+  mara1_motor2:
+    has_velocity_limits: true
+    max_velocity: 1.57
+    has_acceleration_limits: false
+    max_acceleration: 0
+  mara1_motor3:
+    has_velocity_limits: true
+    max_velocity: 1.57
+    has_acceleration_limits: false
+    max_acceleration: 0
+  mara1_motor4:
+    has_velocity_limits: true
+    max_velocity: 1.57
+    has_acceleration_limits: false
+    max_acceleration: 0
+  mara1_motor5:
+    has_velocity_limits: true
+    max_velocity: 1.57
+    has_acceleration_limits: false
+    max_acceleration: 0
+  mara1_motor6:
+    has_velocity_limits: true
+    max_velocity: 1.57
+    has_acceleration_limits: false
+    max_acceleration: 0
+  mara2_motor1:
+    has_velocity_limits: true
+    max_velocity: 1.57
+    has_acceleration_limits: false
+    max_acceleration: 0
+  mara2_motor2:
+    has_velocity_limits: true
+    max_velocity: 1.57
+    has_acceleration_limits: false
+    max_acceleration: 0
+  mara2_motor3:
+    has_velocity_limits: true
+    max_velocity: 1.57
+    has_acceleration_limits: false
+    max_acceleration: 0
+  mara2_motor4:
+    has_velocity_limits: true
+    max_velocity: 1.57
+    has_acceleration_limits: false
+    max_acceleration: 0
+  mara2_motor5:
+    has_velocity_limits: true
+    max_velocity: 1.57
+    has_acceleration_limits: false
+    max_acceleration: 0
+  mara2_motor6:
+    has_velocity_limits: true
+    max_velocity: 1.57
+    has_acceleration_limits: false
+    max_acceleration: 0
