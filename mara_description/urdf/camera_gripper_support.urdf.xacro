@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro name="mara_camera_gripper_support" params="prefix">
+    <link name="${prefix}mara_gripper_adapter">
+      <inertial>
+        <origin rpy="0 0 0" xyz="8.625E-08 -4.6583E-06 0.03145"/>
+        <mass value="0.13969"/>
+        <inertia ixx="91283.23E-9" ixy="634.87E-9" ixz="-0.02E-9" iyy="97239.94E-9" iyz="93.72E-9" izz="175963.64E-9"/>
+      </inertial>
+      <visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <mesh filename="package://mara_description/meshes/gripper_adapter.dae" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="Gazebo/Wood">
+          <color rgba="0. 0. 0. 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <mesh filename="package://mara_description/meshes/gripper_adapter.dae" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+    <gazebo reference="${prefix}mara_gripper_adapter">
+      <material>Gazebo/Black</material>
+      <selfCollide>True</selfCollide>
+    </gazebo>
+
+    <link name="${prefix}mara_camera_support1_link">
+      <inertial>
+        <origin rpy="0 0 0" xyz="8.625E-08 -4.6583E-06 0.03145"/>
+        <mass value="0.00361"/>
+        <inertia ixx="266.47E-9" ixy="0.0" ixz="0.0" iyy="115.40E-9" iyz="-0.40E-9" izz="233.53E-9"/>
+      </inertial>
+      <visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <mesh filename="package://mara_description/meshes/Camera_Support_1.dae" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="Gazebo/Wood">
+          <color rgba="0. 0. 0. 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <mesh filename="package://mara_description/meshes/Camera_Support_1.dae" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+    <gazebo reference="${prefix}mara_camera_support1_link">
+      <material>Gazebo/Black</material>
+      <selfCollide>True</selfCollide>
+    </gazebo>
+
+    <link name="${prefix}mara_camera_support2_link">
+      <inertial>
+        <origin rpy="0 0 0" xyz="8.625E-08 -4.6583E-06 0.03145"/>
+        <mass value="0.00676"/>
+        <inertia ixx="584.80E-9" ixy="28.57E-9" ixz="-2.42E-9" iyy="1930.29E-9" iyz="-140.62E-9" izz="2077.50E-9"/>
+      </inertial>
+      <visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <mesh filename="package://mara_description/meshes/Camera_Support_2.dae" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="Gazebo/Wood">
+          <color rgba="0. 0. 0. 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <mesh filename="package://mara_description/meshes/Camera_Support_2.dae" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+    <gazebo reference="${prefix}mara_camera_support2_link">
+      <material>Gazebo/Black</material>
+      <selfCollide>True</selfCollide>
+    </gazebo>
+
+    <joint name="${prefix}gripper_adapter_to_camera_support1" type="fixed">
+      <origin rpy="0 0 0" xyz="0 0.03956 -0.00213"/>
+      <parent link="${prefix}mara_gripper_adapter"/>
+      <child link="${prefix}mara_camera_support1_link"/>
+    </joint>
+
+    <joint name="${prefix}camera_support1_to_support2" type="fixed">
+      <origin rpy="0 0 0" xyz="0 0.01029 -0.00128"/>
+      <parent link="${prefix}mara_camera_support1_link"/>
+      <child link="${prefix}mara_camera_support2_link"/>
+    </joint>
+  </xacro:macro>
+</robot>
