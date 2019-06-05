@@ -7,6 +7,3 @@ controller_list:
       - motor4
       - motor5
       - motor6
-  - name: fake_endeffector_controller
-    joints:
-      []
