@@ -5,6 +5,7 @@
 
 #define M_PI 3.14159265358979323846
 
+// Global variables
 boost::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group;
 boost::shared_ptr<tf::TransformListener> tf_listener;
 
@@ -31,6 +32,11 @@ void move_home()
     if (not success) {ROS_ERROR_NAMED("IK_moveit", "Execution failed");}
     it++;
   }
+  if (not success) {
+    ROS_ERROR_NAMED("IK_moveit", "Controller stopped working. Aborting");
+    ros::shutdown();
+    return;
+  }
   ROS_INFO_NAMED("IK_moveit", "Executed successfully");
 }
 
@@ -39,17 +45,7 @@ void pose_callback(const geometry_msgs::PoseStamped::ConstPtr& pose_goal_C)
 {
   ROS_INFO_NAMED("IK_moveit", "Received pose!");
 
-  // tf::StampedTransform transform;
-  // try{
-  //   ros::Time now = ros::Time::now();
-  //   tf_listener.waitForTransform("base_link", "ee_link", now, ros::Duration(3.0));
-  //   tf_listener.lookupTransform("base_link", "ee_link", now, transform);
-  // }
-  // catch (tf::TransformException ex){
-  //   ROS_ERROR("%s", ex.what());
-  //   ros::Duration(1.0).sleep();
-  // }
-
+  // From pointer to not pointer
   geometry_msgs::PoseStamped init_pose;
   init_pose.header.stamp = pose_goal_C->header.stamp;
   init_pose.header.frame_id = "camera_color"; // Hard-coded. Original was rs_camera_frame, but it's unreachable
@@ -61,6 +57,7 @@ void pose_callback(const geometry_msgs::PoseStamped::ConstPtr& pose_goal_C)
   init_pose.pose.orientation.z = pose_goal_C->pose.orientation.z;
   init_pose.pose.orientation.w = pose_goal_C->pose.orientation.w;
 
+  // Get original pose
   geometry_msgs::PoseStamped ori_pose;
   try{
     ros::Time now = ros::Time::now();
@@ -72,6 +69,7 @@ void pose_callback(const geometry_msgs::PoseStamped::ConstPtr& pose_goal_C)
     ros::Duration(1.0).sleep();
   }
 
+  // Get target pose (object from camera) and transform to base_link coordinates
   geometry_msgs::PoseStamped target_pose;
   try{
     ROS_INFO_NAMED("IK_moveit", "Searching transformation...");
@@ -83,27 +81,16 @@ void pose_callback(const geometry_msgs::PoseStamped::ConstPtr& pose_goal_C)
     ROS_ERROR("%s", ex.what());
     ros::Duration(1.0).sleep();
   }
-  ROS_INFO_NAMED("IK_moveit", "Transforation fetched!");
+  ROS_INFO_NAMED("IK_moveit", "Transformation fetched!");
 
 
+  // Mantain original 'z' and orientation
   target_pose.pose.position.z = ori_pose.pose.position.z;
   target_pose.pose.orientation.x = ori_pose.pose.orientation.x;
   target_pose.pose.orientation.y = ori_pose.pose.orientation.y;
   target_pose.pose.orientation.z = ori_pose.pose.orientation.z;
   target_pose.pose.orientation.w = ori_pose.pose.orientation.w;
-
   move_group->setPoseTarget(target_pose.pose);
-
-  // geometry_msgs::Pose target_pose;
-  // target_pose.position.x = transform.getOrigin().x() + 0.005;
-  // target_pose.position.y = transform.getOrigin().y();
-  // target_pose.position.z = transform.getOrigin().z();
-  // target_pose.orientation.x = transform.getRotation().x();
-  // target_pose.orientation.y = transform.getRotation().y();
-  // target_pose.orientation.z = transform.getRotation().z();
-  // target_pose.orientation.w = transform.getRotation().w();
-  //
-  // move_group->setPoseTarget(target_pose);
 
   // Plan
   moveit::planning_interface::MoveGroupInterface::Plan my_plan;
@@ -115,7 +102,6 @@ void pose_callback(const geometry_msgs::PoseStamped::ConstPtr& pose_goal_C)
   ROS_INFO_NAMED("IK_moveit", "Plan succeed! Moving...");
 
   // Execute
-  // Execute
   success = false;
   int it = 0;
   while (success != true && it < 5){
@@ -123,13 +109,12 @@ void pose_callback(const geometry_msgs::PoseStamped::ConstPtr& pose_goal_C)
     if (not success) {ROS_ERROR_NAMED("IK_moveit", "Execution failed");}
     it++;
   }
+  if (not success) {
+    ROS_ERROR_NAMED("IK_moveit", "Controller stopped working. Aborting");
+    ros::shutdown();
+    return;
+  }
   ROS_INFO_NAMED("IK_moveit", "Executed successfully");
-
-  // // Wait 5 seconds
-  // ros::Duration(5.0).sleep();
-  //
-  // // Go back home
-  // move_home();
 }
 
 
