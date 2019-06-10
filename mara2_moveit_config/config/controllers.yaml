@@ -1,0 +1,17 @@
+controller_list:
+  - name: ""
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    joints:
+      - motor1
+      - motor2
+      - motor3
+      - motor4
+      - motor5
+      - motor6
+      - mara2_motor1
+      - mara2_motor2
+      - mara2_motor3
+      - mara2_motor4
+      - mara2_motor5
+      - mara2_motor6

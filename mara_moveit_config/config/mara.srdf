@@ -136,19 +136,19 @@
 
 
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
-    <end_effector name="moveit_ee" parent_link="ee_link" group="endeffector" />
+    <end_effector name="moveit_ee" parent_link="ee_link" group="manipulator" />
     <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
     <virtual_joint name="fixed_base" type="fixed" parent_frame="table" child_link="base_link" />
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
 
-    <passive_joint name="left_inner_knuckle_joint" />
-    <passive_joint name="left_outer_knuckle_joint" />
-    <passive_joint name="left_outer_finger_joint" />
-    <passive_joint name="left_inner_finger_joint" />
-    <passive_joint name="right_inner_knuckle_joint" />
-    <passive_joint name="right_outer_knuckle_joint" />
-    <passive_joint name="right_outer_finger_joint" />
-    <passive_joint name="right_inner_finger_joint" />
+    <passive_joint name="robotiq_arg2f_base_to_left_inner_knuckle" />
+    <passive_joint name="robotiq_arg2f_base_to_left_outer_knuckle" />
+    <passive_joint name="left_outer_knuckle_to_finger" />
+    <passive_joint name="left_outer_finger_to_inner" />
+    <passive_joint name="robotiq_arg2f_base_to_right_inner_knuckle" />
+    <passive_joint name="right_outer_knuckle_to_finger" />
+    <passive_joint name="right_outer_knuckle_to_finger" />
+    <passive_joint name="right_outer_finger_to_inner" />
 
     <disable_collisions link1="base_link" link2="base_robot" reason="Adjacent" />
     <disable_collisions link1="base_link" link2="motor1_cover" reason="Never" />

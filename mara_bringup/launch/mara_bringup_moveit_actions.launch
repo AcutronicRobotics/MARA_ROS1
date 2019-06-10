@@ -1,17 +1,10 @@
 <?xml version="1.0"?>
 <launch>
   <arg name="env" default="sim"/>
-  <arg name="gripper" default="false"/>
-  <arg name="prefix" default="140"/>
-  <arg name="table" default="true"/>
+  <arg name="urdf" default="mara_robot"/>
+  <arg name="multiple_robots" default="false"/>
 
-  <arg unless="$(arg gripper)" name="model" default="mara_robot"/>
-  <arg unless="$(arg table)" name="no_table" default="_no_table"/>
-
-  <arg if="$(arg table)" name="no_table" default=""/>
-  <arg if="$(arg gripper)" name="model" default="mara_robot_gripper_$(arg prefix)$(arg no_table)"/>
-
-  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find mara_description)/urdf/$(arg model).urdf.xacro'" />
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find mara_description)/urdf/$(arg urdf).urdf.xacro'" />
 
   <!-- Robot state publisher -->
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
@@ -19,13 +12,20 @@
     <param name="tf_prefix" type="string" value="" />
   </node>
 
-  <node pkg="mara_bringup" type="follow_joints_trajectory_actions.py" name="follow_joints_individual_trajectory" args="$(find mara_bringup)/config/motors.yaml $(arg env)"/>
+  <group if="$(arg multiple_robots)">
+    <include file="$(find mara2_moveit_config)/launch/mara_moveit_planning_execution.launch"/>
+    <include file="$(find mara2_moveit_config)/launch/moveit_rviz.launch">
+      <arg name="config" default="true"/>
+    </include>
+    <node pkg="mara_bringup" type="follow_joints_trajectory_actions.py" name="follow_joints_individual_trajectory" args="$(find mara_bringup)/config/two_motors.yaml $(arg env)"/>
+  </group>
+  <group unless="$(arg multiple_robots)">
+    <include file="$(find mara_moveit_config)/launch/mara_moveit_planning_execution.launch"/>
+    <include file="$(find mara_moveit_config)/launch/moveit_rviz.launch">
+      <arg name="config" default="true"/>
+    </include>
+    <node pkg="mara_bringup" type="follow_joints_trajectory_actions.py" name="follow_joints_individual_trajectory" args="$(find mara_bringup)/config/motors.yaml $(arg env)"/>
+  </group>
 
-  <include file="$(find mara_moveit_config)/launch/mara_moveit_planning_execution.launch">
-  </include>
-
-  <include file="$(find mara_moveit_config)/launch/moveit_rviz.launch">
-    <arg name="config" default="true"/>
-  </include>
 
 </launch>

@@ -1,0 +1,17 @@
+controller_list:
+  - name: fake_manipulator_controller
+    joints:
+      - motor1
+      - motor2
+      - motor3
+      - motor4
+      - motor5
+      - motor6
+  - name: fake_manipulator2_controller
+    joints:
+      - mara2_motor1
+      - mara2_motor2
+      - mara2_motor3
+      - mara2_motor4
+      - mara2_motor5
+      - mara2_motor6
