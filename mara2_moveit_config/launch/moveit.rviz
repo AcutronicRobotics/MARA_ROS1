@@ -75,35 +75,35 @@ Visualization Manager:
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
-          mara1_base_robot:
+          base_robot:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-          mara1_base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          mara1_ee_link:
+          base_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          mara1_motor3_link:
+          ee_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          mara1_motor1_link:
+          motor3_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          mara1_tool0:
+          motor1_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-          mara1_motor2_link:
+            Value: true
+          tool0:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          motor2_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -112,17 +112,17 @@ Visualization Manager:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-          mara1_motor4_link:
+          motor4_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          mara1_motor5_link:
+          motor5_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          mara1_motor6_link:
+          motor6_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -171,35 +171,35 @@ Visualization Manager:
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
-          mara1_base_robot:
+          base_robot:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-          mara1_base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          mara1_ee_link:
+          base_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          mara1_motor3_link:
+          ee_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          mara1_motor1_link:
+          motor3_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          mara1_tool0:
+          motor1_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-          mara1_motor2_link:
+            Value: true
+          tool0:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          motor2_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -208,17 +208,17 @@ Visualization Manager:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-          mara1_motor4_link:
+          motor4_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          mara1_motor5_link:
+          motor5_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          mara1_motor6_link:
+          motor6_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
