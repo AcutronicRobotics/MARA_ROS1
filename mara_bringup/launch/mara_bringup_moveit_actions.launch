@@ -12,19 +12,19 @@
     <param name="tf_prefix" type="string" value="" />
   </node>
 
-  <node pkg="mara_bringup" type="follow_joints_trajectory_actions.py" name="follow_joints_individual_trajectory" args="$(find mara_bringup)/config/motors.yaml $(arg env)"/>
-
   <group if="$(arg multiple_robots)">
     <include file="$(find mara2_moveit_config)/launch/mara_moveit_planning_execution.launch"/>
     <include file="$(find mara2_moveit_config)/launch/moveit_rviz.launch">
       <arg name="config" default="true"/>
     </include>
+    <node pkg="mara_bringup" type="follow_joints_trajectory_actions.py" name="follow_joints_individual_trajectory" args="$(find mara_bringup)/config/two_motors.yaml $(arg env)"/>
   </group>
   <group unless="$(arg multiple_robots)">
     <include file="$(find mara_moveit_config)/launch/mara_moveit_planning_execution.launch"/>
     <include file="$(find mara_moveit_config)/launch/moveit_rviz.launch">
       <arg name="config" default="true"/>
     </include>
+    <node pkg="mara_bringup" type="follow_joints_trajectory_actions.py" name="follow_joints_individual_trajectory" args="$(find mara_bringup)/config/motors.yaml $(arg env)"/>
   </group>
 
 
