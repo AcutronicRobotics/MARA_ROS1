@@ -56,8 +56,8 @@ class maraFollowJoint(object):
         print("Cancel recieved!")
         print(cancel)
         self._as.set_aborted()
-        for i in range(len(self.names_actions)):
-            pub = rospy.Publisher(self.names_actions[i] + "/cancel", GoalID, queue_size=1)
+        for i in range(len(self.names_actions[self.num_robot])):
+            pub = rospy.Publisher(self.names_actions[self.num_robot][i] + "/cancel", GoalID, queue_size=1)
             pub.publish(cancel)
 
     def execute_cb(self, goal):
