@@ -17,7 +17,7 @@ This repository provides ROS 2 support for [MARA](https://acutronicrobotics.com/
 ```bash
 mkdir -p ~/catkin_mara_ws/src
 cd ~/catkin_mara_ws/src
-git clone https://github.com/AcutronicRobotics/MARA_ROS1
+git clone -b dashing https://github.com/AcutronicRobotics/MARA_ROS1
 cd ~/catkin_mara_ws/
 catkin_make_isolated --install
 ```
